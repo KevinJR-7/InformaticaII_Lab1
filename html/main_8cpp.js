@@ -1,0 +1,27 @@
+var main_8cpp =
+[
+    [ "adivinar", "main_8cpp.html#a6f4ad68be80f4a7b2fa9d5507f28c19c", null ],
+    [ "area_perimetro", "main_8cpp.html#a156feb071fabd3d15a08b145639b482a", null ],
+    [ "calculadora", "main_8cpp.html#a607ceb45fe11b9ea30d52cea811743d4", null ],
+    [ "cantidad_digitos", "main_8cpp.html#a30dfb92755ade977e33153650e7947e2", null ],
+    [ "convertir", "main_8cpp.html#a7551ed41e324c0d5b1bced708ff26379", null ],
+    [ "division", "main_8cpp.html#ad7f2a36a57a5a8924ae4adf1c99119b1", null ],
+    [ "divisionRedondeo", "main_8cpp.html#a72ee2456c5997617de5ee140bfd82c32", null ],
+    [ "divisores", "main_8cpp.html#ab4f8a54de0ab560a03fa5891b25d0c19", null ],
+    [ "espiral", "main_8cpp.html#abbb8457a667abddc64d22fbf1a9112b3", null ],
+    [ "fecha", "main_8cpp.html#a9a940825ac2ba63c8e125ace7876dfe1", null ],
+    [ "fibonacci", "main_8cpp.html#ac5cfc5e0ccdfd7283b373a9cef29ee55", null ],
+    [ "mayor", "main_8cpp.html#a5271f174e69fd3fcb2e1ddb1949d0cf9", null ],
+    [ "mayor_constante", "main_8cpp.html#a81b74fda961851eeb3c26acee9d90d4f", null ],
+    [ "mcm", "main_8cpp.html#a4a06dc5822a6ab2e20cc611bd4e8b2db", null ],
+    [ "mcm_rango", "main_8cpp.html#a32f4381d3565e68f86a7d932b20bb3cd", null ],
+    [ "patron", "main_8cpp.html#ac7b5091657793ccac2d3c5633a605458", null ],
+    [ "primo", "main_8cpp.html#a091a7fde66a9d46244b13f0a8c635b3b", null ],
+    [ "suma", "main_8cpp.html#a138e492e0a0ae893027dd0592ec55c0c", null ],
+    [ "suma_constante", "main_8cpp.html#a0c636539dd225e3bf39ce5ce0dec81c8", null ],
+    [ "suma_digitos", "main_8cpp.html#a7a43811762aba2785ce05bb309107cbd", null ],
+    [ "suma_primos", "main_8cpp.html#a6ea1543816769052862054605a13e4c4", null ],
+    [ "tabla_multiplicar", "main_8cpp.html#a53ef79a44246ebe9847e6a86e23af2c9", null ],
+    [ "triangular", "main_8cpp.html#ab03353f55363c67a96b2acbe8c48a93f", null ],
+    [ "vocal_consonante", "main_8cpp.html#a434b60e836f77e255ea873d0c2eeeb69", null ]
+];
