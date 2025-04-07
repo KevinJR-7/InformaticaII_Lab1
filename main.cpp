@@ -109,7 +109,7 @@ float area_perimetro() {
     
     cout << "Ingrese el radio del circulo: ";
     cin >> r;
-    const float pi = 3.1416;
+    float pi = 3.1416;
     float area = pi * r * r;
     float perimetro = 2 * pi * r;
     cout << "Area: " << area << endl;
@@ -172,7 +172,9 @@ int suma_constante() {
         cin >> n;
         suma += n;
     } while (n != 0);
-    return suma;
+    cout << "La suma de todos los numeros ingresado es:  "
+            << suma << endl;
+    return 0;
 }
 
 /**
@@ -204,31 +206,14 @@ int mayor_constante() {
  * @param n Número entero
  * @return si N es primo o no
  */
-int primo() {
-    int n;
-    cout << "Ingrese un numero N: ";
-    cin >> n;
-
-    if (n <= 1) {
-        cout << n << " no es un numero primo." << endl;
-        return 0;
-    }
-
-    bool esPrimo = true;
+bool primo(int n) {
     for (int i = 2; i * i <= n; i++) {
         if (n % i == 0) {
-            esPrimo = false;
-            break;
+            return false;
+
         }
     }
-
-    if (esPrimo) {
-        cout << n << " es un numero primo." << endl;
-    } else {
-        cout << n << " no es un numero primo." << endl;
-    }
-
-    return 0;
+    return true;
 }
 
 /**
@@ -426,9 +411,9 @@ int fecha() {
     }
     
     if (valido) {
-        cout << dia << "/" << mes << "es una fecha valida" << endl;
+        cout << dia << "/" << mes << "es una fecha valida " << endl;
         if (mes == 2 && dia == 29) {
-            cout << "Posiblemente año bisiesto" << endl;
+            cout << "Posiblemente ano bisiesto" << endl;
         }
     } else {
         cout << dia << "/" << mes << "es una fecha invalida" << endl;
@@ -469,6 +454,7 @@ int patron() {
     cout << "Ingrese un numero impar para el tamano del patron: ";
     cin >> n;
     int mid = n / 2;
+    cout << mid << endl;
     // Parte superior del patrón
     for (int i = 0; i <= mid; i++) {
         int numEspacios = mid - i;
@@ -577,15 +563,8 @@ int suma_primos() {
     cout << "Ingrese un numero n: ";
     cin >> n;
     
-    for (int i = 2; i < n; i++) {
-        bool Primo = true;
-        for (int j = 2; j <= i / 2; j++) {
-            if (i % j == 0) {
-                Primo = false;
-                break;
-            }
-        }
-        if (Primo) {
+    for (int i = 2; i < n;i++){
+        if(primo(i)){
             suma += i;
         }
     }
@@ -612,43 +591,60 @@ int suma_primos() {
  * bono: imprimir espiral
  * @return espiral formada
  */
+#include <iostream>
+#include <vector>
+#include <iomanip>
+using namespace std;
+
 int espiral() {
     int n;
     cout << "Ingrese un numero impar n: ";
     cin >> n;
-    
     int matriz[n][n];
     int x = n / 2, y = n / 2, num = 1;
     matriz[x][y] = num++;
-    
-    for (int i = 1; i <= n; i += 2) {
+
+    for (int i = 1; i < n; i += 2) {
         for (int j = 0; j < i; j++) {
-            matriz[x][++y] = num++;
+            if (y + 1 < n) matriz[x][++y] = num++; // derecha
         }
         for (int j = 0; j < i; j++) {
-            matriz[--x][y] = num++;
+            if (x + 1 < n) matriz[++x][y] = num++; // abajo
         }
         for (int j = 0; j < i + 1; j++) {
-            matriz[x][--y] = num++;
+            if (y - 1 >= 0) matriz[x][--y] = num++; // izquierda
         }
         for (int j = 0; j < i + 1; j++) {
-            matriz[++x][y] = num++;
+            if (x - 1 >= 0) matriz[--x][y] = num++; // arriba
         }
     }
-    
-    int suma_diagonal = 0;
+
+
+    for (int j = 0; j < n - 1; j++) matriz[x][++y] = num++;
+
+    // Sumar diagonales
+    int suma = 0;
     for (int i = 0; i < n; i++) {
-        suma_diagonal += matriz[i][i];
+        suma += matriz[i][i]; // diagonal principal
+        suma += matriz[i][n - 1 - i]; // diagonal secundaria
     }
-    cout << "es una espiral de " << n << "x" << n << endl;
-    cout << "La suma es: " << suma_diagonal << endl;
-    cout << "La espiral es: " << endl;
+    suma -= matriz[n / 2][n / 2]; // Restar el centro
+
+    cout << "la suma de las diagonales es: " << suma << endl;
+
+    // Mostrar matriz
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            cout << matriz[i][j] << "\t";
+            if (matriz[i][j] < 10)
+                cout << "  " << matriz[i][j] << " ";
+            else if (matriz[i][j] < 100)
+                cout << " " << matriz[i][j] << " ";
+            else
+                cout << matriz[i][j] << " ";
         }
         cout << endl;
     }
+
     return 0;
 }
 
@@ -693,7 +689,11 @@ int triangular() {
     cout << "El primer numero triangular con mas de " << k << " divisores es: " << num_triang << endl;
     return 0;
 }
-
+/**
+ * @brief Funcion principal
+ * 
+ *  
+ */
 int main() {
     int opcion;
     do {
@@ -705,7 +705,7 @@ int main() {
 
         switch (opcion) {
         case 1: {
-            int seleccion, a, b;
+            int seleccion,n, a, b;
             cout << "Elija un ejercicio:" << endl;
             cout << "1. Division" << endl;
             cout << "3. Mayor" << endl;
@@ -734,7 +734,16 @@ int main() {
             case 13: divisores(); break;
             case 15: suma_constante(); break;
             case 17: mayor_constante(); break;
-            case 19: primo(); break;
+            case 19:
+                cout << "Ingrese un numero N: ";
+                cin >> n;
+
+                if (primo(n)) {
+                    cout << n << " es un numero primo." << endl;
+                } else {
+                    cout << n << " no es un numero primo." << endl;
+                }
+                break;
             case 21: convertir(); break;
             case 23:
                 cout << "Ingrese un numero A: ";
